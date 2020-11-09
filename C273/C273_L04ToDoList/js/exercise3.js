@@ -19,20 +19,16 @@ $(document).ready(function() {
     if (!$("#idPhone").val()) {
       message += "- Phone is required.<br>";
     } else {
-      console.log("test1");
       let regex = new RegExp("[89]\d{7}");
       if(!regex.test($("#idPhone").val())) {
-        console.log("test2");
         message += "- Phone number must be starting with 8 or 9 and containing a total of 8 digits.<br>";
       }
     }
     if (!$("#idEmail").val()) {
       message += "- Email is required.<br>";
     } else {
-      console.log("test3");
       let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
       if(!re.test($("#idEmail").val())) {
-        console.log("Test4");
         message += "- Email must be entered correctly.<br>"
       }
     }
