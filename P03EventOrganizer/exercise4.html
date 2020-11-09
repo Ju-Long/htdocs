@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <form action ="doexercise4.php" method="post">
+            Name <input type="text" name="name" placeholder="enter your name" required/>
+            <br>
+            Email <input type="email" name="email" placeholder="enter your email" required/>
+            <br>
+            Address <input type="text" name="address"/>
+            <br>
+            Postal Code <input type="number" name="postalcode" placeholder="enter a 6-digit code"/>
+            <br>
+            Country <select name="country">
+                <option value="sg">Singapore</option>
+                <option value="usa">America</option>
+            </select>
+            <br>
+            Food Preference
+            <input type="radio" name="food" value="vegetarian"/>
+            <label for="vegetarian">Vegetarian</label>
+            <input type="radio" name="food" value="non"/>
+            <label for="non">Non-Vegetarian</label>
+            <br>
+            <input type="submit" value="SEND" />
+            <input type="reset" value="CLEAR" />
+        </form>
+    </body>
+</html>

@@ -1,0 +1,8 @@
+p.bigText {
+    font-size: 20px;
+    font-style: bold;
+}
+p.smallText {
+    font-size: 10px;
+    color: red;
+}

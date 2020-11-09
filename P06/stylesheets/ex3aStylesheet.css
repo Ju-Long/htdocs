@@ -1,0 +1,11 @@
+body {
+    background-color: coral;
+}
+h2 {
+    color: lightgreen;
+    alignment-adjust: central;
+}
+p {
+    font-size: 20px;
+    font-family: "Times New Roman"
+}

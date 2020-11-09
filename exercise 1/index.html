@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>L02</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+    <body>
+                
+        <form action="/action_page.php" method="get" target="_blank">
+            
+            <label> Types of Cars: </label>
+            <select name="Cars"> 
+                <option value="Compact" selected> Compact</option>
+                <option value="Sports"> Sports</option>
+                <option value="Mid-Size"> Mid-Size</option>
+                <option value="Convertibles"> Convertible</option>
+                <option value="Mini-Vans"> Mini-Vans</option>
+            </select> 
+            <br><br>
+            
+            <label> How Many Cars You Own?: </label><br>
+            <input type="radio" name="number of cars" value="Less than 5" checked> Less than 5<br>
+            <input type="radio" name="number of cars" value="Between 5 and 10"> Between 5 and 10<br>
+            <input type="radio" name="number of cars" value="More than 10"> More than 10<br>
+            <br><br>
+            
+            <label> Ways to stay in touch: </label><br>
+            <input type="checkbox" name="ways to stay in touch" value="Online Forum" checked/> Online Forum <br>
+            <input type="checkbox" name="ways to stay in touch" value="Social Network" checked/> Social Network <br>
+            <input type="checkbox" name="ways to stay in touch" value="Regular Meetings" checked/> Regular Meetings <br>
+            <br><br><br>
+            
+            <label> Private Information: </label><br>
+            
+            <label for="fname">Full Name:</label>
+            <input type="text" id="fname" name="fname" required
+                   placeholder="Enter Your Fullname" autofocus/>
+            <br><br>
+            
+            <label for="elvls"> Education Level: </label>
+            <select id="elvls" name="elvls" required>
+                <option value="--- Please Select One ---" selected> --- Please Select One --- </option>
+                <option value="O-Levels"> O-Levels</option>
+                <option value="N-Levels"> N-Levels</option>
+                <option value="Diploma"> Diploma</option>
+                <option value="Degree"> Degree</option>
+            </select>
+            <br><br>
+            
+            <label for="race"> Race: </label>
+            <input type="text" id="race" name="race">
+            <br><br>
+            
+            <label for="address"> Residential Address: </label>
+            <textarea cols="50" rows="4" id="address" name="address">                
+            </textarea>
+            <br><br>
+            
+            <label for="gender"> Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="--- Please Select Your Gender ---" selected> --- Please Select Your Gender --- </option>
+                <option value="Male"> Male</option>
+                <option value="Female"> Female</option>      
+            </select>
+            <br><br>
+            
+            <label for="age"> Age:</label>
+            <input type="number" id="age" name="age" required
+                   placeholder="Enter Your Age" autofocus/> 
+            <br><br>
+            
+            <label for="comment"> Comment:</label>
+            <textarea cols="50" rows="5" id="comment" name="comment">                
+            </textarea>
+            
+            <br><br><br>
+            <input type="submit" value="Submit">
+            
+        </form>
+        <form action="/action_page.php" method="get" target="_blank">
+            <label for="meetup"> Meet up Date and Time: </label><br>
+            <input type="date" id="meetup" name="meetup">
+            <input type="time" id="meetup" name="meetup"
+                   placeholder="Enter the time" autofocus>
+            
+            <label> username </label>
+            
+        </form>
+            
+        
+
+    </body>
+</html>

@@ -1,0 +1,21 @@
+body {
+    background-color: coral;
+}
+h2 {
+    color: white;
+    align-content: center;
+}
+p {
+    font-size: 14px;
+    margin: 20px;
+    padding: 10px;
+    font-family: "Times New Roman";
+    border-style: solid;
+    border-color: blue;
+    border-width: 2px;
+}
+div {
+    color: cyan;
+    margin-left: 50;
+    font-size: 30px;
+}

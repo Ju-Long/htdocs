@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+<body>
+
+<h2>What Can JavaScript Do?</h2>
+
+<p id="demo">JavaScript can change the style of an HTML element.</p>
+
+<button type="button" onclick="document.getElementById('demo').style.fontSize='35px'">Click Me!</button>
+
+<script>
+    var n = "i, o, u, a, e";
+    var i = n.split(",");
+    var u = "";
+    for(var o = 0; o < i.length; o++) {
+        u += i[o] + "<br >";
+    }
+    
+    const car = {type:"", model:"", color:""};
+    car.color = "red";
+    car.owner = "yes"
+    
+    document.getElementById("demo").innerHTML = u;
+</script>
+</body>
+</html> 

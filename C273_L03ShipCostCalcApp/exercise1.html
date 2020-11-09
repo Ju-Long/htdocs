@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Exercise 1</title>
+        <meta charset="UTF-8">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                var favText = $(".smallText").html();
+                var fruit = $(":text").val();
+                var message = favText + " " + fruit;
+                $("#result").html(message);                
+            })
+        </script>
+</head>
+
+    <body>
+        <p class="smallText">My favourite fruit is</p>
+        <input type="text" name="fruit" value="apple"/>
+        <p id="result"></p>
+    </body>
+</html>
