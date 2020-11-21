@@ -14,12 +14,12 @@ $msg = "";
 if ($category === "invalid") {
     $_SESSION['title'] = $title;
     $_SESSION['content'] = $content;
-    $msg = "You entered a invalid option for category" . 
+    $msg = "You entered a invalid option for category" .
             "<meta http-equiv='refresh' content='2; url=./addStory.php'/>";
 } else {
     $query = "INSERT INTO stories (title, content, author_id, category_id, created_on, picture)
             VALUES ('$title', '$content', $userID, $category, $time, $picture)";
-    
+
     $result = mysqli_query($link, $query);
     if ($result) {
         $msg .= "Story successfully added. \n";
@@ -38,11 +38,9 @@ if ($category === "invalid") {
     <body>
         <?php include "navbar.php" ?>
         <h3>Story Teller - Add New Story</h3>
-        
-        <?php 
+
+        <?php
         echo $msg; ?>
-    
+
     </body>
 </html>
-
-
