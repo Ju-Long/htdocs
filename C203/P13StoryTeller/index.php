@@ -17,7 +17,7 @@ mysqli_close($link);
         <title>Story Teller - Home</title>
     </head>
     <body>
-        <?php 
+        <?php
         include "navbar.php";
         ?>
         <h3>Story Teller - Home</h3>
@@ -27,18 +27,18 @@ mysqli_close($link);
                 <th>Image</th>
                 <th>Title</th>
                 <th>Created On</th>
-                <?php 
+                <?php
                 if (isset($_SESSION['user_id'])){ ?>
                 <th>Edit</th>
                     <?php } ?>
             </tr>
-            <?php 
+            <?php
             for ($i = 0; $i < count($arrStories); $i++) {
                 $title = $arrStories[$i]['title'];
                 $userID = $arrStories[$i]['author_id'];
                 $image = $arrStories[$i]['picture'];
                 $createdOn = $arrStories[$i]['created_on'];
-                $storyID = $arrStories[$i]['id'];  
+                $storyID = $arrStories[$i]['id'];
                 ?>
                 <tr>
                     <td>
@@ -46,7 +46,7 @@ mysqli_close($link);
                     </td>
                     <td><a href="storyDetails.php?id=<?php echo $storyID?>"><?php echo $title?></a></td>
                     <td><?php echo $createdOn?></td>
-                    <?php 
+                    <?php
                     if( isset($_SESSION['user_id'])) {
                         if ($_SESSION['role'] === "admin" || $_SESSION['user_id'] === $userID) {?>
                     <td><a href="editStory.php?id=<?php echo $storyID?>">Edit Story</a></td>
