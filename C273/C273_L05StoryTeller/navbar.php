@@ -19,7 +19,7 @@
         <div class="dropdown-menu">
           <a class="dropdown-item" href="storySummary.php">Story List</a>
           <?php if(isset($_SESSION['user_id'])) {?>
-            <a class="dropdown-item" href="#">Add New Story</a>
+            <a class="dropdown-item" href="addStory.php">Add New Story</a>
           <?php }?>
         </div>
       </li>
@@ -39,12 +39,22 @@
       </li>
     </ul>
     <?php if (isset($_SESSION['user_id'])) {
-        echo "<i class='text-white'>Welcome ". $_SESSION['firstname']. " ". $_SESSION['lastname']. " (". $_SESSION['role']. ")</i>";
+        echo "<i class='fas fa-user text-white' style='margin-right:5px'></i><i class='text-white'>Welcome ". $_SESSION['firstname']. " ". $_SESSION['lastname']. " (". $_SESSION['role']. ")</i>";
     }
     ?>
     <div class="form-inline ml-auto">
-      <input class="form-control" style="margin-right: 5px" type="search" placeholder="Search">
-      <button class="btn btn-outline-success" type="submit"><i class="fas fa-search"></i>Search</button>
+      <input class="form-control search" style="margin-right: 5px" type="search" placeholder="Search" name="search">
+      <button class="btn btn-outline-success" onclick="search()" type="submit"><i class="fas fa-search"></i>Search</button>
     </div>
+
+    <script>
+      function search() {
+        if ($("#search").val() == "") {
+
+        } else {
+          location.replace("./doSearchStories.php?title=" + $("#search").val());
+        }
+      }
+    </script>
   </div>
 </nav>

@@ -2,10 +2,15 @@
 session_start();
 include "./dbFunctions.php";
 
-$search = $_POST['search'];
+if (isset($_POST['search'])) {
+  $search = $_POST['search'];
+} else if (isset($_GET['title'])) {
+  $search= $_GET['title'];
+}
+
 $msg = "";
 
-$query = "SELECT title, content FROM stories
+$query = "SELECT * FROM stories
           WHERE title LIKE '%$search%'
           OR content LIKE '%$search%'";
 $result = mysqli_query($link, $query) or die(mysqli_error($link));
@@ -29,20 +34,25 @@ mysqli_close($link);
         <?php include "navbar.php" ?>
         <h3>Story Teller - Search for Stories</h3>
 
-        Content Contains: <label><?php echo $search;?></label>
-        <?php if (empty($msg)) { ?>
-        <table class="box-table">
-            <tr>
-                <th>Title</th>
-                <th>Content</th>
-            </tr>
-            <?php for ($i = 0; $i < count($arrStories); $i++) { ?>
-            <tr>
-                <td><?php echo $arrStories[$i]['title'] ?></td>
-                <td><?php echo $arrStories[$i]['content']?></td>
-            </tr>
-            <?php } ?>
-        </table>
-        <?php } else { echo $msg;}?>
+        <?php
+        $message = "";
+        for ($i = 0; $i < count($arrStories); $i++){
+          $title = $arrStories[$i]['title'];
+          $content = $arrStories[$i]['content'];
+          $picture = $arrStories[$i]['picture'];
+          $message .= "<div class='row'>";
+          $message .= "<div class='col-6'>";
+          $message .= "<img class='img-thumbnail mr-auto' style='width: 500px' alt='Responsive image' src='./images/$picture'/>";
+          $message .= "</div>";
+          $message .= "<div class='col-6'>";
+          $message .= "<h2><a href='doSearchStories.php?title=$title'>$title</a></h2>";
+          $message .= "<br>";
+          $message .= "<p>$content</p>";
+          $message .= "</div>";
+          $message .= "</div>";
+          $message .= "";
+        }
+        echo $message;
+        ?>
     </body>
 </html>
