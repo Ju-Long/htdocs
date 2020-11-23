@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 ?>
 
@@ -7,8 +7,8 @@ session_start();
         <meta charset="UTF-8">
         <link href="stylesheets/storyTellerStylesheet.css" rel="stylesheet" type="text/css"/>
         <title>Story Teller - Change Password</title>
-        
-        <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+
+        <script src="js/jquery-3.5.1.min.js" type="text/javascript"></script>
 
         <style>
            #error_msg{color:red; font-weight:bold;}
@@ -38,7 +38,7 @@ session_start();
                    var $errorCont = $("#error_msg");
                    if($errorCont.length > 0){
                        $errorCont.remove();
-                   }  
+                   }
                }
 
 
@@ -50,7 +50,7 @@ session_start();
                            checkMatchingPasswords();
                        }
                     })
-                    .on("blur", function(){                    
+                    .on("blur", function(){
                        // also check when the element looses focus (clicks somewhere else)
                        checkMatchingPasswords();
                    })
@@ -65,13 +65,13 @@ session_start();
     <body>
         <?php include "navbar.php" ?>
         <h3>Story Teller - Change Password</h3>
-        
+
         <div id="changePassword">
-            <form id="form" name="form" method="post" action="doChangePassword.php"> 
+            <form id="form" name="form" method="post" action="doChangePassword.php">
                 <label> Old Password: </label>
                 <input name="oldPassword" type="text" /><br/>
 
-                <label> New Password: </label> 
+                <label> New Password: </label>
                 <input name="newPassword" id="password" type="password" /><br/>
 
                 <label>Confirm Password:</label>
@@ -82,4 +82,3 @@ session_start();
         </div>
     </body>
 </html>
-
