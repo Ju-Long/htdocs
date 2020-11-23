@@ -17,7 +17,7 @@
           Maintain Story
         </a>
         <div class="dropdown-menu">
-          <a class="dropdown-item" href="storySummary.php">Story List</a>
+          <a class="dropdown-item" href="storyList.php">Story List</a>
           <?php if(isset($_SESSION['user_id'])) {?>
             <a class="dropdown-item" href="addStory.php">Add New Story</a>
           <?php }?>

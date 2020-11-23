@@ -26,7 +26,7 @@ while ($row = mysqli_fetch_assoc($resultCate)) {
               document.getElementById("output").innerHTML = this.responseText;
             }
           };
-          xhttp.open("GET", "doStorySummary.php?n="+value, true);
+          xhttp.open("GET", "doStoryList.php?n="+value, true);
           xhttp.send();
         }
         </script>
