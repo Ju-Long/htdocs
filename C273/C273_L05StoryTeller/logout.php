@@ -2,8 +2,8 @@
 session_start();
 if (isset($_SESSION['user_id'])) {
     session_destroy();
-    $message = "You have logged out." . 
-            "<meta http-equiv='refresh' content='2; url=./index.php'/>";
+    $message = "You have logged out." .
+            "<meta http-equiv='refresh' content='2; url=./home.php'/>";
 }
 ?>
 <!DOCTYPE HTML>

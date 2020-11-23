@@ -11,10 +11,10 @@ if (!isset($_SESSION['user_id'])) {
         $password = $_POST['password'];
 
         //match the username and password entered with database record
-        $query = "SELECT * FROM users 
+        $query = "SELECT * FROM users
             WHERE username='" . $username . "' AND password = SHA1('" . $password . "')";
         $result = mysqli_query($link, $query) or die(mysqli_error($link));
-        
+
         //if record is found, store id and username into session
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_array($result);
@@ -23,18 +23,18 @@ if (!isset($_SESSION['user_id'])) {
             $_SESSION['username'] = $row['username'];
             $_SESSION['firstname'] = $row['first_name'];
             $_SESSION['lastname'] = $row['last_name'];
-            
-            $msg = "<meta http-equiv='refresh' content='2; url=./index.php'/>";
+
+            $msg = "<meta http-equiv='refresh' content='2; url=./home.php'/>";
         } else {
-            $msg = "Sorry, you must enter a valid username 
-                    and password to log in." . 
-                    "<meta http-equiv='refresh' content='2; url=./login.php'/>";
+            $msg = "Sorry, you must enter a valid username
+                    and password to log in." .
+                    "<meta http-equiv='refresh' content='2; url=./home.php'/>";
         }
 
     }
 } else {
-    $msg = "You are are already logged in." . 
-            "<meta http-equiv='refresh' content='2; url=./index.php'/>";
+    $msg = "You are are already logged in." .
+            "<meta http-equiv='refresh' content='2; url=./home.php'/>";
 }
 ?>
 
@@ -47,9 +47,9 @@ if (!isset($_SESSION['user_id'])) {
     <body>
         <?php include "navbar.php" ?>
         <h3>Story Teller - Login</h3>
-        
-        <?php 
+
+        <?php
         echo $msg; ?>
-    
+
     </body>
 </html>

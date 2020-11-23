@@ -5,7 +5,7 @@ include "./dbFunctions.php";
 $search = $_POST['search'];
 $msg = "";
 
-$query = "SELECT title, content FROM stories 
+$query = "SELECT title, content FROM stories
           WHERE title LIKE '%$search%'
           OR content LIKE '%$search%'";
 $result = mysqli_query($link, $query) or die(mysqli_error($link));
@@ -28,7 +28,7 @@ mysqli_close($link);
     <body>
         <?php include "navbar.php" ?>
         <h3>Story Teller - Search for Stories</h3>
-        
+
         Content Contains: <label><?php echo $search;?></label>
         <?php if (empty($msg)) { ?>
         <table class="box-table">
