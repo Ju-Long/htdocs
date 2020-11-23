@@ -42,19 +42,10 @@
         echo "<i class='fas fa-user text-white' style='margin-right:5px'></i><i class='text-white'>Welcome ". $_SESSION['firstname']. " ". $_SESSION['lastname']. " (". $_SESSION['role']. ")</i>";
     }
     ?>
-    <div class="form-inline ml-auto">
-      <input class="form-control search" style="margin-right: 5px" type="search" placeholder="Search" name="search">
+    <form method="get" action="doSearchStories.php"class="form-inline ml-auto">
+      <input class="form-control search" style="margin-right: 5px" type="search" placeholder="Search" name="title">
       <button class="btn btn-outline-success" onclick="search()" type="submit"><i class="fas fa-search"></i>Search</button>
-    </div>
+    </form>
 
-    <script>
-      function search() {
-        if ($("#search").val() == "") {
-
-        } else {
-          location.replace("./doSearchStories.php?title=" + $("#search").val());
-        }
-      }
-    </script>
   </div>
 </nav>

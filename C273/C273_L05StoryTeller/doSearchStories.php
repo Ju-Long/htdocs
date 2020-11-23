@@ -22,7 +22,6 @@ if (mysqli_num_rows($result) == 0) {
         $arrStories[] = $row;
     }
 }
-mysqli_close($link);
 ?>
 <html>
     <head>
@@ -35,24 +34,47 @@ mysqli_close($link);
         <h3>Story Teller - Search for Stories</h3>
 
         <?php
-        $message = "";
-        for ($i = 0; $i < count($arrStories); $i++){
-          $title = $arrStories[$i]['title'];
-          $content = $arrStories[$i]['content'];
-          $picture = $arrStories[$i]['picture'];
-          $message .= "<div class='row'>";
-          $message .= "<div class='col-6'>";
-          $message .= "<img class='img-thumbnail mr-auto' style='width: 500px' alt='Responsive image' src='./images/$picture'/>";
-          $message .= "</div>";
-          $message .= "<div class='col-6'>";
-          $message .= "<h2><a href='doSearchStories.php?title=$title'>$title</a></h2>";
-          $message .= "<br>";
-          $message .= "<p>$content</p>";
-          $message .= "</div>";
-          $message .= "</div>";
-          $message .= "";
+        if($msg == "") {
+          for ($i = 0; $i < count($arrStories); $i++){
+
+            $cateID = $arrStories[$i]['category_id'];
+            $queryCate = "SELECT * FROM story_categories WHERE id = $cateID";
+            $resultCate = mysqli_query($link, $queryCate) or die(mysqli_error($link));
+
+            while ($row = mysqli_fetch_assoc($resultCate)) {
+                $cate = $row['name'];
+            }
+
+            $authID = $arrStories[$i]['author_id'];
+            $queryAuthor = "SELECT * FROM users WHERE id = $authID";
+            $resultAuthor = mysqli_query($link, $queryAuthor) or die(mysqli_error($link));
+
+            while ($row = mysqli_fetch_assoc($resultAuthor)) {
+                $name = $row['first_name'] . " " . $row['last_name'];
+            }
+
+            $title = $arrStories[$i]['title'];
+            $content = $arrStories[$i]['content'];
+            $picture = $arrStories[$i]['picture'];
+            $msg .= "<div class='container'>";
+            $msg .= "<h2>$title</h2>";
+            $msg .= "<div class='row'>";
+            $msg .= "<div class='col-6'>";
+            $msg .= "<img class='img-thumbnail mr-auto' style='width: 500px' alt='Responsive image' src='./images/$picture'/>";
+            $msg .= "</div>";
+            $msg .= "<div class='col-6'>";
+            $msg .= "Category: <b>$cate</b>";
+            $msg .= "<br>";
+            $msg .= "Author: <b>$name</b>";
+            $msg .= "<br>";
+            $msg .= "<p>$content</p>";
+            $msg .= "</div>";
+            $msg .= "</div>";
+            $msg .= "</div>";
+            $msg .= "";
+          }
         }
-        echo $message;
+        echo $msg;
         ?>
     </body>
 </html>

@@ -10,11 +10,11 @@ session_start();
     <body>
         <?php include "navbar.php" ?>
         <h3>Story Teller - Search for Stories</h3>
-        
+
         <div id="login">
-            <form method="post" action="doSearchStories.php" id="postform">
-                <label>Story content contains:
-                    <input type="text" name="search"/></label>
+            <form method="get" action="doSearchStories.php" id="postform">
+                <label>Story content contains:</label>
+                <input type="text" name="title"/>
                 <input type="submit" value="Search for Stories" />
             </form>
         </div>
