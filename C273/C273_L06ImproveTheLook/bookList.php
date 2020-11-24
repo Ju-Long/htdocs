@@ -1,7 +1,7 @@
 <?php
 include("dbFunctions.php");
 // create query
-$query = "SELECT * FROM books, book_categories 
+$query = "SELECT * FROM books, book_categories
           WHERE books.cat_id = book_categories.id
           ORDER BY books.id";
 
@@ -18,6 +18,19 @@ $result = mysqli_query($link, $query) or
         <link href="css/bootstrap.min.css" rel="stylesheet">
         <script src="js/jquery-3.5.1.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
+        <script>
+          $(document).ready(function() {
+            $("#itemTypes").change(function(){
+              if ($(this).val() != 0) {
+                $("tr").hide();
+                $(".header").show();
+                $(`.${$(this).val()}`).show();
+              } else {
+                $("tr").show();
+              }
+            });
+          });
+        </script>
     </head>
     <body>
         <?php
@@ -73,7 +86,7 @@ $result = mysqli_query($link, $query) or
                     </tr>
                     <?php
                 } // end while loop
-                ?>    
+                ?>
             </table>
         </div>
     </body>

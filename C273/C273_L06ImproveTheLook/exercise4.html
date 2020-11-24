@@ -17,7 +17,8 @@
                 $("form").validate({
                     rules: {
                         firstName: {
-                            required: true
+                            required: true,
+                            pattern: /^[a-zA-Z]{5,}$/
                         },
                         username: {
                             required: true,
