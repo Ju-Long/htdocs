@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     </head>
+    <body>
+        <form method="post" action="doProcess.php">
+            <div class="ui-widget">
+                <label for="id_consoles">Choose game console: </label>
+                <input type="text" id="id_consoles" name="consoles"/>
+                <br/><br/>
+                <label for="id_date">Purchase date: </label>
+                <input id="id_date" type="text" name="lastVisit"/>
+                <br/><br/>
+                <div id="target-text-demo"></div>
+                <br/><br/>
+                <label for="slider">Quantity <input type="text" id="num" readonly style="border:0; color:#f6931f; font-weight:bold; text-align:right" size="1"></label>
+                     <div id="slider"></div>
+                <br/>
+                <input type="submit" value="Submit Info"/>
+            </div>
+        </form>
+    </body>
+</html>
