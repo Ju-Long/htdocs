@@ -26,7 +26,7 @@
         source: areas
       });
       $('#id_last_visit').datepicker({
-          dateFormat: "dd/MM/yy",
+          dateFormat: "dd/mm/yy",
           minDate: "-2M",
           maxDate: 0,
           maxViewMode: 1,
@@ -62,21 +62,21 @@
         rules: {
           visitor_name: {
             required: true,
-            pattern: /^[0-9a-zA-Z._]{2,}$/
+            pattern: /^[0-9a-zA-Z._ ]{2,}$/
           },
           email: {
             required: true
           },
           area: {
             required: true,
-            pattern: /^[a-zA-Z]{1,}$/
+            pattern: /^[a-zA-Z ]{1,}$/
           },
           last_visit: {
             required: true
           },
           visitor_comments: {
             required: true,
-            pattern: /^{,200}$/
+            pattern: /^[a-zA-Z0-9.,_ ]{0,200}$/
           }
         },
         messages: {
