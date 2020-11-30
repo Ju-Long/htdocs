@@ -1,13 +1,16 @@
 <?php
 include("dbFunctions.php");
 // create query
-$query = "SELECT * FROM books, book_categories
+$queryBooks = "SELECT * FROM books, book_categories
           WHERE books.cat_id = book_categories.id
           ORDER BY books.id";
 
 // execute query
-$result = mysqli_query($link, $query) or
-        die("Error in query: $query. " . mysqli_error($link));
+$resultBooks = mysqli_query($link, $queryBooks) or
+        die("Error in query: $queryBooks. " . mysqli_error($link));
+
+$queryCate = "SELECT * FROM book_categories";
+$resultCate = mysqli_query($link, $queryCate) or die ("Error in query: $queryCate" . mysqli_error($link));
 ?>
 <!DOCTYPE html>
 <html>
@@ -42,7 +45,12 @@ $result = mysqli_query($link, $query) or
                 <div class="form-group">
                     <label for="itemTypes">Show:</label>
                     <select id="itemTypes" class="form-control">
-                        <option value="0">
+                      <?php
+                      echo "<option value='0'> all category </option>";
+                      while ($row = mysqli_fetch_assoc($resultCate)) { ?>
+                        <option value="<?php echo $row['cat_name']?>"><?php echo $row['cat_name']?></option>
+                      <?php }?>
+                        <!-- <option value="0">
                             all categories
                         </option>
                         <option value="adventure">
@@ -56,7 +64,7 @@ $result = mysqli_query($link, $query) or
                         </option>
                         <option value="self-development">
                             self-development
-                        </option>
+                        </option> -->
                     </select>
                 </div>
             </form>
@@ -67,7 +75,7 @@ $result = mysqli_query($link, $query) or
                     <th>Category</th>
                 </tr>
                 <?php
-                while ($row = mysqli_fetch_assoc($result)) {
+                while ($row = mysqli_fetch_assoc($resultBooks)) {
                     $id = $row['id'];
                     $title = $row['title'];
                     $num_pages = $row['pages'];

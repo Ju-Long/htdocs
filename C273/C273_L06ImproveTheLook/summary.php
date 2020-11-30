@@ -21,15 +21,35 @@ while ($row = mysqli_fetch_array($result)) {
 }
 
 //populate the variables below
-$labels = "";
-$colours = "";
-$data = "";
+$labels = "'Need Improvement', 'Ok', 'Good', 'Very Good', 'Excellent'";
+$colours = "'red', 'orange', 'yellow', 'green', 'blue'";
+$data = "1, 2, 3, 4, 5";
 ?>
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Pie and Donut Charts</title>
+        <title>Summary</title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
+        <script src="js/jquery-3.5.1.min.js" type="text/javascript"></script>
+        <script src="js/Chart.bundle.min.js" type="text/javascript"></script>
+        <script>
+        $(document).ready(function () {
+            var pieChart = new Chart($("#pieChart"), {
+                type: 'pie',
+                data: {
+                    datasets: [{
+                            data: [<?php echo $data ?>],
+                            backgroundColor: [<?php echo $colours ?>],
+                            label: 'Feedback Summary'
+                        }],
+                    labels: [<?php echo $labels ?>]
+                },
+                options: {
+                    responsive: true
+                }
+            });
+          });
+        </script>
     </head>
 
     <body>
@@ -38,16 +58,9 @@ $data = "";
         ?>
         <div class="container">
             <h3>Rating Distribution</h3>
-            <?php
-            for ($i = 1; $i <= count($total_ratings); $i++) {
-                if ($total_ratings[$i] == 1) {
-                    echo "There is 1 user who rated the library " . $i;
-                } else {
-                    echo "There are " . $total_ratings[$i] . " users who rated the library " . $i;
-                }
-                echo "<br />";
-            }
-            ?>
+            <div id="canvas-holder" style="width:100%">
+                <canvas id="pieChart" />
+            </div>
         </div>
     </body>
 </html>
