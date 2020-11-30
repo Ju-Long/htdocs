@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/jquery-ui.min.css">
+  <link rel='stylesheet' href="css/all.min.css">
   <script src="js/jquery-3.5.1.min.js" type="text/javascript"></script>
   <script src="js/bootstrap.bundle.min.js"></script>
   <script src="js/jquery.validate.min.js" type="text/javascript"></script>
@@ -24,9 +25,17 @@
       $("#id_area").autocomplete({
         source: areas
       });
-      $("#id_last_visit").datepicker({
-        minDate: 1,
-        maxDate: "+1M +10D"
+      $('#id_last_visit').datepicker({
+          dateFormat: "dd/MM/yy",
+          minDate: "-2M",
+          maxDate: 0,
+          maxViewMode: 1,
+          clearBtn: true,
+          orientation: "bottom auto",
+          multidate: false,
+          forceParse: false,
+          autoclose: true,
+          todayHighlight: true
       });
       $("#id_num").slider({
         value: 0,
@@ -53,7 +62,10 @@
         rules: {
           visitor_name: {
             required: true,
-            pattern: /^[a-zA-Z]{1,}$/
+            pattern: /^[0-9a-zA-Z._]{2,}$/
+          },
+          email: {
+            required: true
           },
           area: {
             required: true,
@@ -63,7 +75,8 @@
             required: true
           },
           visitor_comments: {
-            required: true
+            required: true,
+            pattern: /^{,200}$/
           }
         },
         messages: {
@@ -77,7 +90,7 @@
             required: "Please enter your last visit"
           },
           visitor_comments: {
-            required: "Please enter your comments"
+            required: "Please enter your comments and maximum 200 characters."
           }
         },
         submitHandler: function() {
@@ -100,6 +113,10 @@
       <div class="form-group">
         <label for="id_name">Name:</label>
         <input type="text" class="form-control" id="id_name" name="visitor_name" required>
+      </div>
+      <div class="form-group">
+        <label for="id_email">Email:</label>
+        <input type="email" class="form-control" id="id_email" name="email" required>
       </div>
       <div class="form-group">
         <label for="id_area">Area:</label>
