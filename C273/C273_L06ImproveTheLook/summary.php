@@ -23,7 +23,7 @@ while ($row = mysqli_fetch_array($result)) {
 //populate the variables below
 $labels = "'Need Improvement', 'Ok', 'Good', 'Very Good', 'Excellent'";
 $colours = "'red', 'orange', 'yellow', 'green', 'blue'";
-$data = "1, 2, 3, 4, 5";
+$data = "$total_ratings[1], $total_ratings[2], $total_ratings[3], $total_ratings[4], $total_ratings[5]";
 ?>
 <!DOCTYPE HTML>
 <html>
