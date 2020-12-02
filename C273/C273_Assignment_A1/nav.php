@@ -6,28 +6,21 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav ml-auto">
+      <?php if (isset($_SESSION['user'])) {?>
       <li class="nav-item active">
         <a class="nav-link" href="#">Home</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="#">Logout</a>
       </li>
 
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown">
-          Dropdown
-        </a>
-
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
-        </div>
-
+    <?php } else {?>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Login</a>
       </li>
+    <?php }?>
     </ul>
 
   </div>
