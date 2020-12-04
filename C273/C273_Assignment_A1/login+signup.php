@@ -8,7 +8,7 @@
     <<?php include './nav.php'?>
     <div class="container">
 
-      
+      <!-- TODO: create a segment control like display to switch between one form and another -->
 
       <form id="loginForm" action="index.html" method="post">
         <div class="form-group">
