@@ -7,8 +7,8 @@ session_start();
     <meta charset="utf-8">
     <title></title>
   </head>
-  <body>
+  <body style="background-image: './img/skgh.png'">
     <?php include './nav.php' ?>
-    
+
   </body>
 </html>

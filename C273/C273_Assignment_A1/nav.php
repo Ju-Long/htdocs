@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light fixed-top">
+<nav class="navbar navbar-expand-md navbar-light bg-light">
   <img id="logo" class="navbar-brand" src="./img/skh_logo.png" onclick="directToHome()"/>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
@@ -30,10 +30,7 @@
 
     <?php } else {?>
       <li class="nav-item">
-        <a class="nav-link" href="#">Login<i class="fas fa-sign-in-alt"></i></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Sign up<i class="fas fa-user-plus"></i></a>
+        <a class="nav-link" href="./login+signup.php">Login / Sign up<i class="fas fa-sign-in-alt"></i></a>
       </li>
     <?php }?>
     </ul>
@@ -71,7 +68,7 @@
     margin-left: 20px;
     margin-right: 20px;
   }
-
+<?php if (isset($_SESSION['user'])) {?>
   #tooltip {
     background: #333;
     color: white;
@@ -115,6 +112,7 @@
   #tooltip[data-popper-placement^='right'] > #arrow {
     left: -4px;
   }
+  <?php } ?>
 </style>
 
 <script type="text/javascript">
@@ -127,6 +125,7 @@
     $(this).removeClass("text-info");
   });
 
+<?php if (isset($_SESSION['user'])) {?>
   const dataDisplay = document.querySelector('#dataDisplay');
   const tooltip = document.querySelector('#tooltip');
 
@@ -172,4 +171,5 @@
   hideEvents.forEach(event => {
    dataDisplay.addEventListener(event, hide);
   });
+  <?php }?>
 </script>
