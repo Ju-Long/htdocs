@@ -280,7 +280,7 @@
 
 .custom-form-control {
   display: block;
-  width: 100%;
+  width: 40%;
   height: calc(1.5em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
@@ -365,12 +365,12 @@ select.custom-form-control:focus::-ms-value {
 .custom-form-control-file,
 .custom-form-control-range {
   display: block;
-  width: 100%;
+  width: 40%;
 }
 
 .custom-form-control-plaintext {
   display: block;
-  width: 100%;
+  width: 40%;
   padding: 0.375rem 0;
   margin-bottom: 0;
   font-size: 1rem;
