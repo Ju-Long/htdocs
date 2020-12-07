@@ -5,31 +5,26 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="./css/segmentAnimation.css">
     <link href="https://www.cssscript.com/wp-includes/css/sticky.css" rel="stylesheet" type="text/css">
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-46156385-1', 'cssscript.com');
-      ga('send', 'pageview');
-    </script>
+    <style>
+      form .error {
+        color: #ff0000;
+      }
+    </style>
   </head>
   <body>
     <?php include './nav.php'?>
-    <div class="container">
+    <section class="section" style="max-height: 50px">
+      <div class="section-inner">
+        <div class="segmented-control" style="width: 300px; color: #11AC63">
+          <input type="radio" name="sc-2-1" id="login" checked>
+          <input type="radio" name="sc-2-1" id="signup">
 
-      <section class="section">
-        <div class="section-inner">
-          <div class="segmented-control" style="width: 300px; color: #11AC63">
-            <input type="radio" name="sc-2-1" id="login" checked>
-            <input type="radio" name="sc-2-1" id="signup">
-
-            <label for="login" data-value="Login">Login</label>
-            <label for="signup" data-value="Signup">Signup</label>
-          </div>
+          <label for="login" data-value="Login">Login</label>
+          <label for="signup" data-value="Signup">Signup</label>
         </div>
-      </section>
+      </div>
+    </section>
+    <div class="container">
 
       <script type="text/javascript">
         $(document).ready(function() {
@@ -41,6 +36,27 @@
               $("#loginForm").css('display', 'block');
               $("#signupForm").css('display', 'none');
             }
+          });
+
+          var today = new Date();
+          var dd = today.getDate();
+          var mm = today.getMonth()+1; //January is 0!
+          var yyyy = today.getFullYear();
+          if(dd<10){
+            dd='0'+dd
+          }
+          if(mm<10){
+            mm='0'+mm
+          }
+          today = yyyy+'/'+mm+'/'+dd;
+          id_dob.max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
+
+          $("#loginForm").submit(function() {
+
+          });
+          
+          $("#signupForm").submit(function() {
+
           });
         });
       </script>
@@ -55,6 +71,9 @@
           <label for="id_loginPassword">Please Enter Your Password: </label>
           <input type="password" class="form-control" id="id_loginPassword" name="loginPassword"/>
         </div>
+
+        <input type="submit" class="btn btn-primary" value="Submit"/>
+        <input type="reset" class="btn btn-default" id="btnReset" value="Reset"/>
       </form>
 
 
@@ -76,14 +95,22 @@
 
         <div class="form-group row ">
           <div id="height" class="col-6">
-            <label for="id_signupConfirmPassword">Please Enter Your Height (in cm): </label>
-            <input type="number" class="custom-form-control" id="id_signupConfirmPassword" name="signupConfirmPassword" min="1" max="300"/>
+            <label for="id_height">Please Enter Your Height (in cm): </label>
+            <input type="number" class="custom-form-control" id="id_height" name="signupHeight" min="1" max="300"/>
           </div>
           <div id="weight" class="col-6">
-            <label for="id_signupConfirmPassword">Please Enter Your Weight (in Kg): </label>
-            <input type="number" class="custom-form-control" id="id_signupConfirmPassword" name="signupConfirmPassword" min="1" max="635"/>
+            <label for="id_weight">Please Enter Your Weight (in Kg): </label>
+            <input type="number" class="custom-form-control" id="id_weight" name="signupWeight" min="1" max="635"/>
           </div>
         </div>
+
+        <div class="form-group">
+          <label for="id_dob">Please Confirm Your Password: </label>
+          <input type="date" class="form-control" id="id_dob" name="dateOfBirth"/>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Submit"/>
+        <input type="reset" class="btn btn-default" id="btnReset" value="Reset"/>
       </form>
 
     </div>
