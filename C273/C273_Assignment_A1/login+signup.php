@@ -54,9 +54,49 @@
           $("#loginForm").submit(function() {
 
           });
-          
+
+          $("#loginForm").validate({
+            rules: {
+              loginUsername: {
+                required: true
+              }, loginPassword: {
+                required: true
+              }
+            },
+            messages: {
+              loginUsername: {
+                required: "Please enter your username"
+              }, loginPassword: {
+                required: "Please enter your password"
+              }
+            },
+            submitHandler: function() {
+              return true;
+            }
+          });
+
           $("#signupForm").submit(function() {
 
+          });
+
+          $("#signupForm").validate({
+            rules: {
+              signupUsername: {
+                required: true
+              }, signupPassword: {
+                required: true
+              }
+            },
+            messages: {
+              loginUsername: {
+                required: "Please enter your username"
+              }, loginPassword: {
+                required: "Please enter your password"
+              }
+            },
+            submitHandler: function() {
+              return true;
+            }
           });
         });
       </script>
