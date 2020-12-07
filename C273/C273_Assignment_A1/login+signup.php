@@ -85,13 +85,31 @@
                 required: true
               }, signupPassword: {
                 required: true
+              }, signupConfirmPassword: {
+                equalTo: "#id_signupPassword"
+              }, signupHeight: {
+                required: true
+              }, signupWeight: {
+                required: true
+              }, dateOfBirth: {
+                required: true,
+                date: true
               }
             },
             messages: {
-              loginUsername: {
-                required: "Please enter your username"
-              }, loginPassword: {
-                required: "Please enter your password"
+              signupUsername: {
+                required: "Please enter a username"
+              }, signupPassword: {
+                required: "Please enter a password"
+              }, signupConfirmPassword: {
+                equalTo: "Please enter the same password"
+              }, signupHeight: {
+                required: "Please enter your height"
+              }, signupWeight: {
+                required: "Please enter your weight"
+              }, dateOfBirth: {
+                required: "Please enter your date of birth",
+                date: "Please enter in date format"
               }
             },
             submitHandler: function() {
