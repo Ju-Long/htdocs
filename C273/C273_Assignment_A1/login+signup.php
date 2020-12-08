@@ -25,99 +25,7 @@
       </div>
     </section>
     <div class="container">
-
-      <script type="text/javascript">
-        $(document).ready(function() {
-          $("input[type='radio']").change(function() {
-            if ($("#signup").is(":checked")) {
-              $("#loginForm").css('display', 'none');
-              $("#signupForm").css('display', 'block');
-            } else {
-              $("#loginForm").css('display', 'block');
-              $("#signupForm").css('display', 'none');
-            }
-          });
-
-          var today = new Date();
-          var dd = today.getDate();
-          var mm = today.getMonth()+1; //January is 0!
-          var yyyy = today.getFullYear();
-          if(dd<10){
-            dd='0'+dd
-          }
-          if(mm<10){
-            mm='0'+mm
-          }
-          today = yyyy+'/'+mm+'/'+dd;
-          id_dob.max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
-
-          $("#loginForm").submit(function() {
-
-          });
-
-          $("#loginForm").validate({
-            rules: {
-              loginUsername: {
-                required: true
-              }, loginPassword: {
-                required: true
-              }
-            },
-            messages: {
-              loginUsername: {
-                required: "Please enter your username"
-              }, loginPassword: {
-                required: "Please enter your password"
-              }
-            },
-            submitHandler: function() {
-              return true;
-            }
-          });
-
-          $("#signupForm").submit(function() {
-
-          });
-
-          $("#signupForm").validate({
-            rules: {
-              signupUsername: {
-                required: true
-              }, signupPassword: {
-                required: true
-              }, signupConfirmPassword: {
-                equalTo: "#id_signupPassword"
-              }, signupHeight: {
-                required: true
-              }, signupWeight: {
-                required: true
-              }, dateOfBirth: {
-                required: true,
-                date: true
-              }
-            },
-            messages: {
-              signupUsername: {
-                required: "Please enter a username"
-              }, signupPassword: {
-                required: "Please enter a password"
-              }, signupConfirmPassword: {
-                equalTo: "Please enter the same password"
-              }, signupHeight: {
-                required: "Please enter your height"
-              }, signupWeight: {
-                required: "Please enter your weight"
-              }, dateOfBirth: {
-                required: "Please enter your date of birth",
-                date: "Please enter in date format"
-              }
-            },
-            submitHandler: function() {
-              return true;
-            }
-          });
-        });
-      </script>
+      <script type="text/javascript" src="./js/login+signup.js"></script>
 
       <form id="loginForm" action="doLogin.php" method="post">
         <div class="form-group">
@@ -131,7 +39,7 @@
         </div>
 
         <input type="submit" class="btn btn-primary" value="Submit"/>
-        <input type="reset" class="btn btn-default" id="btnReset" value="Reset"/>
+        <input type="reset" class="btn btn-default" value="Reset"/>
       </form>
 
 
@@ -168,8 +76,10 @@
         </div>
 
         <input type="submit" class="btn btn-primary" value="Submit"/>
-        <input type="reset" class="btn btn-default" id="btnReset" value="Reset"/>
+        <input type="reset" class="btn btn-default" value="Reset"/>
       </form>
+
+      <p class="error" id="error"></p>
 
     </div>
   </body>
