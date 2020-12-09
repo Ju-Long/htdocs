@@ -23,6 +23,7 @@ $(document).ready(function() {
   id_dob.max = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().split("T")[0];
 
   $("#loginForm").submit(function() {
+    return false;
     $.get("./doLogin.php", {username: $("#id_loginUsername").val(), password: $("#id_loginPassword").val()}, function(data) {
       if(data == "true") {
         location.replace("index.php");

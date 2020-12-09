@@ -7,7 +7,7 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
-      <?php if (isset($_SESSION['user'])) {?>
+      <?php if (isset($_SESSION['username'])) {?>
       <li class="nav-item active">
         <a class="nav-link" href="#">Home<i class="fas fa-home"></i></a>
       </li>
@@ -68,7 +68,7 @@
     margin-left: 20px;
     margin-right: 20px;
   }
-<?php if (isset($_SESSION['user'])) {?>
+<?php if (isset($_SESSION['username'])) {?>
   #tooltip {
     background: #333;
     color: white;
@@ -125,7 +125,7 @@
     $(this).removeClass("text-info");
   });
 
-<?php if (isset($_SESSION['user'])) {?>
+<?php if (isset($_SESSION['username'])) {?>
   const dataDisplay = document.querySelector('#dataDisplay');
   const tooltip = document.querySelector('#tooltip');
 
