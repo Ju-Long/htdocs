@@ -3,12 +3,95 @@ session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body style="background-image: './img/skgh.png'">
-    <?php include './nav.php' ?>
 
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body style="background-image: './img/skgh.png'">
+  <?php include './nav.php' ?>
+  <div class="row">
+
+    <div class="slideshow-container col-8">
+      <div class="mySlides">
+        <div class="numbertext">1 / 3</div>
+        <img id="slideshow-img" src="./img/skgh.png" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">2 / 3</div>
+        <img id="slideshow-img" src="#" style="width:100%">
+      </div>
+
+      <div class="mySlides">
+        <div class="numbertext">3 / 3</div>
+        <img id="slideshow-img" src="#" style="width:100%">
+      </div>
+
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+
+    <ul class="col-4" id="pages">
+      <li id="pages-section">
+        <a class="nav-link text-white" href="https://www.skh.com.sg/">Visit Our Offical Website</a>
+      </li>
+      <li id="pages-section">
+        <a class="nav-link text-white" href="http://www.skh.com.sg/patient-care/visiting-specialist/Pages/make-or-change-appointment.aspx">Book an Appointment</a>
+      </li>
+      <li id="pages-section">
+        <a class="nav-link text-white" href="http://www.skh.com.sg/patient-care/conditions-treatments#abdomen">Find a Condition or Treatments</a>
+      </li>
+      <li id="pages-section">
+        <a class="nav-link text-white" href="https://www.singhealth.com.sg/PatientCare/health-buddy/Pages/Home.aspx">Download Buddy Health App</a>
+      </li>
+      <li id="pages-section">
+        <a class="nav-link text-white" href="http://www.skh.com.sg/about-us/corporate-profile">About Us</a>
+      </li>
+      <li id="pages-section">
+        <a class="nav-link text-white" href="http://www.skh.com.sg/patient-care">Patient Care</a>
+      </li>
+      <li id="pages-section">
+        <a class="nav-link text-white" href="https://www.singhealthdukenus.com.sg">Research & Innovation</a>
+      </li>
+      <li id="pages-section">
+        <a class="nav-link text-white" href="http://www.skh.com.sg/education-training">Education & Training</a>
+      </li>
+      <li id="pages-section">
+        <a class="nav-link text-white" href="http://www.skh.com.sg/careers">Careers</a>
+      </li>
+      <li id="pages-section">
+        <a class="nav-link text-white" href="http://www.skh.com.sg/giving">Giving</a>
+      </li>
+    </ul>
+
+  </div>
+  <script type="text/javascript">
+    var slideIndex = 1;
+    showSlides(slideIndex);
+
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+      var i;
+      var slides = $(".mySlides");
+      if (n > slides.length) {slideIndex = 1}
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+      }
+      slides[slideIndex-1].style.display = "block";
+    }
+  </script>
+</body>
+
 </html>
