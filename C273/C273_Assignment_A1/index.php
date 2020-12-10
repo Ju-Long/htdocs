@@ -112,7 +112,7 @@ session_start();
 
     <ul class="col-4" id="pages">
       <li id="pages-section">
-        <a class="nav-link text-white" href="https://www.skh.com.sg/"><img src="./icons/website.png" class="icons">Visit Our Offical Website</a>
+        <a class="nav-link text-white" href="https://www.skh.com.sg/"><img src="./icons/site.png" class="icons">Visit Our Offical Website</a>
       </li>
       <li id="pages-section">
         <a class="nav-link text-white" href="http://www.skh.com.sg/patient-care/visiting-specialist/Pages/make-or-change-appointment.aspx"><img src="./icons/booking.png" class="icons">Book an Appointment</a>
