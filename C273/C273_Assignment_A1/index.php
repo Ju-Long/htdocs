@@ -97,12 +97,12 @@ session_start();
 
       <div class="mySlides">
         <div class="numbertext">2 / 3</div>
-        <img id="slideshow-img" src="#" style="width:100%">
+        <img id="slideshow-img" src="./img/skh 1.jpg" style="width:100%">
       </div>
 
       <div class="mySlides">
         <div class="numbertext">3 / 3</div>
-        <img id="slideshow-img" src="#" style="width:100%">
+        <img id="slideshow-img" src="./img/skh 2.jpg" style="width:100%">
       </div>
 
       <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -111,6 +111,7 @@ session_start();
 
 
     <ul class="col-4" id="pages">
+      <div style="margin-top: 100px;"></div>
       <li id="pages-section">
         <a class="nav-link text-white" href="https://www.skh.com.sg/"><img src="./icons/site.png" class="icons">Visit Our Offical Website</a>
       </li>
