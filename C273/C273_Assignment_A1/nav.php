@@ -9,11 +9,11 @@
     <ul class="navbar-nav ml-auto">
       <?php if (isset($_SESSION['username'])) {?>
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home<i class="fas fa-home"></i></a>
+        <a class="nav-link" href="./index.php">Home<i class="fas fa-home"></i></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="#">Meal Entry<i class="fas fa-edit"></i></a>
+        <a class="nav-link" href="./mealEntry.php">Meal Entry<i class="fas fa-edit"></i></a>
       </li>
 
       <li class="nav-item" id='dataDisplay'>
