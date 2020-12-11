@@ -9,6 +9,9 @@
       form .error {
         color: #ff0000;
       }
+      .error {
+        color: #ff0000;
+      }
     </style>
   </head>
   <body>
@@ -25,9 +28,128 @@
       </div>
     </section>
     <div class="container">
-      <script type="text/javascript" src="./js/login+signup.js"></script>
+      <script type="text/javascript">
+      $(document).ready(function() {
+        $("input[type='radio']").change(function() {
+          $(".error").html("");
+          if ($("#signup").is(":checked")) {
+            $("#loginForm").css('display', 'none');
+            $("#signupForm").css('display', 'block');
+          } else {
+            $("#loginForm").css('display', 'block');
+            $("#signupForm").css('display', 'none');
+          }
+        });
+        var today = new Date();
+        var dd = today.getDate();
+        var mm = today.getMonth()+1;
+        var yyyy = today.getFullYear();
+        if(dd<10){
+          dd='0'+dd
+        }
+        if(mm<10){
+          mm='0'+mm
+        }
+        $("#year").attr({
+          "max": yyyy
+        });
 
-      <form id="loginForm" action="doLogin.php" method="post">
+        $("#loginForm").submit(function() {
+          $(".error").html("");
+          $.get("./doLogin.php", {username: $("#id_loginUsername").val(), password: $("#id_loginPassword").val()}, function(data) {
+            if(data == "true") {
+              location.replace("index.php");
+            } else {
+              $("#id_loginPassword").val("");
+              $("#error").html("you enter the wrong username/password.");
+            }
+          }, "text")
+          return false;
+        });
+
+        $("#loginForm").validate({
+          rules: {
+            loginUsername: {
+              required: true
+            }, loginPassword: {
+              required: true
+            }
+          },
+          messages: {
+            loginUsername: {
+              required: "Please enter your username"
+            }, loginPassword: {
+              required: "Please enter your password"
+            }
+          },
+          submitHandler: function() {
+            return true;
+          }
+        });
+
+        $("#signupForm").submit(function() {
+          $(".error").html("");
+          var returned = null;
+          $.get("./doSignup.php", {username: $("#id_signupUsername").val()}, function(data) {
+            if (data == "true") {
+              returned = true;
+            } else {
+              returned = false;
+              $("#error").html("Username have already been taken, please choose another one.")
+            }
+          }, "text");
+          return returned;
+        });
+
+        $("#signupForm").validate({
+          rules: {
+            signupUsername: {
+              required: true,
+              minlength: 4
+            }, signupPassword: {
+              required: true
+            }, signupConfirmPassword: {
+              equalTo: "#id_signupPassword"
+            }, signupHeight: {
+              required: true
+            }, signupWeight: {
+              required: true
+            }, date: {
+              required: true
+            }, month: {
+              required: true
+            }, year: {
+              required: true
+            }
+          },
+          messages: {
+            signupUsername: {
+              required: "Please enter a username",
+              minlength: "Please enter more than 5 characters"
+            }, signupPassword: {
+              required: "Please enter a password"
+            }, signupConfirmPassword: {
+              equalTo: "Please enter the same password"
+            }, signupHeight: {
+              required: "Please enter your height"
+            }, signupWeight: {
+              required: "Please enter your weight"
+            }, date: {
+              required: "Please enter your date of birth"
+            }, month: {
+              required: "Please enter your month of birth"
+            }, year: {
+              required: "Please enter your year of birth"
+            }
+          },
+          submitHandler: function() {
+            return true;
+          }
+        });
+      });
+      </script>
+
+      <form id="loginForm" action="#" method="post">
         <div class="form-group">
           <label for="id_loginUsername">Please Enter Your Username: </label>
           <input type="text" class="form-control" id="id_loginUsername" name="loginUsername"/>
@@ -71,8 +193,18 @@
         </div>
 
         <div class="form-group">
-          <label for="id_dob">Please Confirm Your Password: </label>
-          <input type="date" class="form-control" id="id_dob" name="dateOfBirth"/>
+          <label>Please Enter Your Date of Birth: </label>
+          <div class="row">
+            <div class="col-4">
+              <label for="date">Date: </label> <input class="custom-form-control" type="number" id="date" name="date" min="1" max="31"/>
+            </div>
+            <div class="col-4">
+              <label for="month">Month: </label> <input class="custom-form-control" type="number" id="month" name="month" min="1" max="12"/>
+            </div>
+            <div class="col-4">
+              <label for="year">Year: </label> <input class="custom-form-control" type="number" id="year" name="year" min="1900"/>
+            </div>
+          </div>
         </div>
 
         <input type="submit" class="btn btn-primary" value="Submit"/>

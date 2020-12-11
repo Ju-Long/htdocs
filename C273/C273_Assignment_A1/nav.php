@@ -25,7 +25,7 @@
       </div>
 
       <li class="nav-item">
-        <a class="nav-link" href="#">Logout<i class="fas fa-sign-out-alt"></i></a>
+        <a class="nav-link" href="./doSignout.php">Logout<i class="fas fa-sign-out-alt"></i></a>
       </li>
 
     <?php } else {?>
