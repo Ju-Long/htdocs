@@ -12,17 +12,14 @@
         <a class="nav-link" href="./index.php">Home<i class="fas fa-home"></i></a>
       </li>
 
-      <li class="nav-item">
+      <li class="nav-item" id="mealEntry">
         <a class="nav-link" href="./mealEntry.php">Meal Entry<i class="fas fa-edit"></i></a>
+        <div id="tooltip" role="tooltip">
+          This Shows an
+          <div id="arrow" data-popper-arrow></div>
+        </div>
       </li>
 
-      <li class="nav-item" id='dataDisplay'>
-        <a class="nav-link" href="#">Data Display<i class="fas fa-database"></i></a>
-      </li>
-      <div id="tooltip" role="tooltip">
-        This Shows an
-        <div id="arrow" data-popper-arrow></div>
-      </div>
 
       <li class="nav-item">
         <a class="nav-link" href="./doSignout.php">Logout<i class="fas fa-sign-out-alt"></i></a>
@@ -50,9 +47,11 @@
 <script src="js/moment.min.js"></script>
 <script src="https://unpkg.com/@popperjs/core@2"></script>
 <script src="https://unpkg.com/tippy.js@6"></script>
+<script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-core.min.js"></script>
+<script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-pie.min.js"></script>
 
 <style media="screen">
-  li {
+  .nav-item {
     font-size: 20;
     margin-right: 10px;
   }
@@ -126,13 +125,13 @@
   });
 
 <?php if (isset($_SESSION['username'])) {?>
-  const dataDisplay = document.querySelector('#dataDisplay');
+  const mealEntry = document.querySelector('#mealEntry');
   const tooltip = document.querySelector('#tooltip');
 
   let popperInstance = null;
 
   function create() {
-   popperInstance = Popper.createPopper(dataDisplay, tooltip, {
+   popperInstance = Popper.createPopper(mealEntry, tooltip, {
      modifiers: [
        {
          name: 'offset',

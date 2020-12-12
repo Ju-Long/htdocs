@@ -21,12 +21,32 @@ while($row = mysqli_fetch_assoc($result)) {
       .error {
         color: #ff0000;
       }
+      #pieChart {
+        height: 200px;
+      }
     </style>
   </head>
   <body>
     <?php include './nav.php';?>
     <script type="text/javascript">
     $(document).ready(function() {
+      var data = [];
+      getData();
+      function getData() {
+        $.get('./dataDisplay.php', {}, function(meals) {
+          meals.forEach(i=>{
+            i["x"]=i['food_name'];
+            delete i["food_name"];
+            i["value"]=i['COUNT(f.food_name)'];
+            delete i["COUNT(f.food_name)"];
+            delete i["0"];
+            delete i["1"];
+          })
+          data = meals;
+          displayChart();
+        }, 'json');
+      }
+
       $("form").validate({
         rules: {
           food: {
@@ -50,11 +70,39 @@ while($row = mysqli_fetch_assoc($result)) {
           return true;
         }
       });
+
+      $("form").submit(function() {
+        $.post('./doMealEntry.php', {food: $("#food").val(), calorie: $("#id_calorie").val(), fats: $("#id_fats").val()}, function(data, status) {
+          if(status == "success" && data == 1) {
+            getData();
+          } else {
+            console.log("fail");
+          }
+        }, "text");
+        $("#food").val("");
+        $("#id_calorie").val("");
+        $("#id_fats").val("");
+        return false;
+      });
+      function displayChart() {
+        $("#pieChart").html("");
+        anychart.onDocumentReady(function() {
+          console.log(data);
+          var chart = anychart.pie();
+          chart.title("Food you Ate");
+          chart.data(data);
+          chart.sort("desc");
+          chart.legend().position("right");
+          chart.legend().itemsLayout("vertical");
+          chart.container('pieChart');
+          chart.draw();
+        });
+      }
     });
 
     </script>
     <div class="container">
-      <form action="doMealEntry.php" method="post">
+      <form action="" method="post">
 
         <div class="form-group">
           <label for="food">Please Choose a Food: </label>
@@ -79,6 +127,7 @@ while($row = mysqli_fetch_assoc($result)) {
         <input type="submit" class="btn btn-primary" value="Submit"/>
         <input type="reset" class="btn btn-default" value="Reset"/>
       </form>
+      <div id="pieChart"></div>
     </div>
   </body>
 </html>
