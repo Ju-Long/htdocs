@@ -1,3 +1,5 @@
+<!-- Ju Long 19013345 -->
+
 <?php
 include './dbFunctions.php';
 session_start();
@@ -17,3 +19,5 @@ if(isset($_GET['username'])) {
   }
 }
 ?>
+
+<!-- Ju Long 19013345 -->

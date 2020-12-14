@@ -1,3 +1,5 @@
+<!-- Ju Long 19013345 -->
+
 <?php
 include './dbFunctions.php';
 $query = "INSERT INTO C273_Assignment_A1.user (username, password, height, weight, dateOfBirth)
@@ -6,3 +8,5 @@ $result = mysqli_query($link, $query);
 
 echo $result;
 ?>
+
+<!-- Ju Long 19013345 -->

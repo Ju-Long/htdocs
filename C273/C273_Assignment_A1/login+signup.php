@@ -1,3 +1,5 @@
+<!-- Ju Long 19013345 -->
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -107,7 +109,8 @@
               required: true,
               minlength: 4
             }, signupPassword: {
-              required: true
+              required: true,
+              minlength: 4
             }, signupConfirmPassword: {
               equalTo: "#id_signupPassword"
             }, signupHeight: {
@@ -127,7 +130,8 @@
               required: "Please enter a username",
               minlength: "Please enter more than 5 characters"
             }, signupPassword: {
-              required: "Please enter a password"
+              required: "Please enter a password",
+              minlength: "Please enter a password that is more than 5 characters."
             }, signupConfirmPassword: {
               equalTo: "Please enter the same password"
             }, signupHeight: {
@@ -216,3 +220,5 @@
     </div>
   </body>
 </html>
+
+<!-- Ju Long 19013345 -->

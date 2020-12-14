@@ -1,3 +1,5 @@
+<!-- Ju Long 19013345 -->
+
 <?php
 session_start();
 include './dbFunctions.php';
@@ -131,3 +133,5 @@ while($row = mysqli_fetch_assoc($result)) {
     </div>
   </body>
 </html>
+
+<!-- Ju Long 19013345 -->

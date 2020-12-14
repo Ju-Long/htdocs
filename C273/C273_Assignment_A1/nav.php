@@ -1,3 +1,5 @@
+<!-- Ju Long 19013345 -->
+
 <nav class="navbar navbar-expand-md navbar-light bg-light">
   <img id="logo" class="navbar-brand" src="./img/skh_logo.png" onclick="directToHome()"/>
 
@@ -73,3 +75,5 @@
     $(this).removeClass("text-info");
   });
 </script>
+
+<!-- Ju Long 19013345 -->
