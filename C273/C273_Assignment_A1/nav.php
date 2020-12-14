@@ -8,16 +8,12 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto">
       <?php if (isset($_SESSION['username'])) {?>
-      <li class="nav-item active">
+      <li class="nav-item">
         <a class="nav-link" href="./index.php">Home<i class="fas fa-home"></i></a>
       </li>
 
       <li class="nav-item" id="mealEntry">
         <a class="nav-link" href="./mealEntry.php">Meal Entry<i class="fas fa-edit"></i></a>
-        <div id="tooltip" role="tooltip">
-          This Shows an
-          <div id="arrow" data-popper-arrow></div>
-        </div>
       </li>
 
 
@@ -45,8 +41,6 @@
 <script src="js/jquery.raty.min.js" type="text/javascript"></script>
 <script src="js/Chart.bundle.min.js" type="text/javascript"></script>
 <script src="js/moment.min.js"></script>
-<script src="https://unpkg.com/@popperjs/core@2"></script>
-<script src="https://unpkg.com/tippy.js@6"></script>
 <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-core.min.js"></script>
 <script src="https://cdn.anychart.com/releases/8.9.0/js/anychart-pie.min.js"></script>
 
@@ -67,51 +61,6 @@
     margin-left: 20px;
     margin-right: 20px;
   }
-<?php if (isset($_SESSION['username'])) {?>
-  #tooltip {
-    background: #333;
-    color: white;
-    font-weight: bold;
-    padding: 4px 8px;
-    font-size: 13px;
-    border-radius: 4px;
-    display: none;
-  }
-
-  #tooltip[data-show] {
-    display: block;
-  }
-
-  #arrow,
-  #arrow::before {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    z-index: -1;
-  }
-
-  #arrow::before {
-    content: '';
-    transform: rotate(45deg);
-    background: #333;
-  }
-
-  #tooltip[data-popper-placement^='top'] > #arrow {
-    bottom: -4px;
-  }
-
-  #tooltip[data-popper-placement^='bottom'] > #arrow {
-    top: -4px;
-  }
-
-  #tooltip[data-popper-placement^='left'] > #arrow {
-    right: -4px;
-  }
-
-  #tooltip[data-popper-placement^='right'] > #arrow {
-    left: -4px;
-  }
-  <?php } ?>
 </style>
 
 <script type="text/javascript">
@@ -123,52 +72,4 @@
   }).mouseout(function() {
     $(this).removeClass("text-info");
   });
-
-<?php if (isset($_SESSION['username'])) {?>
-  const mealEntry = document.querySelector('#mealEntry');
-  const tooltip = document.querySelector('#tooltip');
-
-  let popperInstance = null;
-
-  function create() {
-   popperInstance = Popper.createPopper(mealEntry, tooltip, {
-     modifiers: [
-       {
-         name: 'offset',
-         options: {
-           offset: [0, 8],
-         },
-       },
-     ],
-   });
-  }
-
-  function destroy() {
-   if (popperInstance) {
-     popperInstance.destroy();
-     popperInstance = null;
-   }
-  }
-
-  function show() {
-   tooltip.setAttribute('data-show', '');
-   create();
-  }
-
-  function hide() {
-   tooltip.removeAttribute('data-show');
-   destroy();
-  }
-
-  const showEvents = ['mouseenter', 'focus'];
-  const hideEvents = ['mouseleave', 'blur'];
-
-  showEvents.forEach(event => {
-   dataDisplay.addEventListener(event, show);
-  });
-
-  hideEvents.forEach(event => {
-   dataDisplay.addEventListener(event, hide);
-  });
-  <?php }?>
 </script>
