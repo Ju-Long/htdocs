@@ -94,6 +94,7 @@
           $(".error").html("");
           var returned = null;
           $.get("./doSignup.php", {username: $("#id_signupUsername").val()}, function(data) {
+            data = data.trim();
             if (data == "true") {
               returned = true;
             } else {
