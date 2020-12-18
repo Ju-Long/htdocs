@@ -115,34 +115,34 @@ session_start();
     <ul class="col-4" id="pages">
       <div style="margin-top: 100px;"></div>
       <li id="pages-section">
-        <a class="nav-link text-white" href="https://www.skh.com.sg/"><img src="./icons/site.png" class="icons">Visit Our Offical Website</a>
+        <a class="nav-link text-white" href="https://www.skh.com.sg/"><img src="./img/icons/site.png" class="icons">Visit Our Offical Website</a>
       </li>
       <li id="pages-section">
-        <a class="nav-link text-white" href="http://www.skh.com.sg/patient-care/visiting-specialist/Pages/make-or-change-appointment.aspx"><img src="./icons/booking.png" class="icons">Book an Appointment</a>
+        <a class="nav-link text-white" href="http://www.skh.com.sg/patient-care/visiting-specialist/Pages/make-or-change-appointment.aspx"><img src="./img/icons/booking.png" class="icons">Book an Appointment</a>
       </li>
       <li id="pages-section">
-        <a class="nav-link text-white" href="http://www.skh.com.sg/patient-care/conditions-treatments#abdomen"><img src="./icons/search.png" class="icons">Find a Condition or Treatments</a>
+        <a class="nav-link text-white" href="http://www.skh.com.sg/patient-care/conditions-treatments#abdomen"><img src="./img/icons/search.png" class="icons">Find a Condition or Treatments</a>
       </li>
       <li id="pages-section">
-        <a class="nav-link text-white" href="https://www.singhealth.com.sg/PatientCare/health-buddy/Pages/Home.aspx"><img src="./icons/appstore.png" class="icons">Download Buddy Health App</a>
+        <a class="nav-link text-white" href="https://www.singhealth.com.sg/PatientCare/health-buddy/Pages/Home.aspx"><img src="./img/icons/appstore.png" class="icons">Download Buddy Health App</a>
       </li>
       <li id="pages-section">
-        <a class="nav-link text-white" href="http://www.skh.com.sg/about-us/corporate-profile"><img src="./icons/about.png" class="icons">About Us</a>
+        <a class="nav-link text-white" href="http://www.skh.com.sg/about-us/corporate-profile"><img src="./img/icons/about.png" class="icons">About Us</a>
       </li>
       <li id="pages-section">
-        <a class="nav-link text-white" href="http://www.skh.com.sg/patient-care"><img src="./icons/patient.png" class="icons">Patient Care</a>
+        <a class="nav-link text-white" href="http://www.skh.com.sg/patient-care"><img src="./img/icons/patient.png" class="icons">Patient Care</a>
       </li>
       <li id="pages-section">
-        <a class="nav-link text-white" href="https://www.singhealthdukenus.com.sg"><img src="./icons/microscope.png" class="icons">Research & Innovation</a>
+        <a class="nav-link text-white" href="https://www.singhealthdukenus.com.sg"><img src="./img/icons/microscope.png" class="icons">Research & Innovation</a>
       </li>
       <li id="pages-section">
-        <a class="nav-link text-white" href="http://www.skh.com.sg/education-training"><img src="./icons/training.png" class="icons">Education & Training</a>
+        <a class="nav-link text-white" href="http://www.skh.com.sg/education-training"><img src="./img/icons/training.png" class="icons">Education & Training</a>
       </li>
       <li id="pages-section">
-        <a class="nav-link text-white" href="http://www.skh.com.sg/careers"><img src="./icons/career.png" class="icons">Careers</a>
+        <a class="nav-link text-white" href="http://www.skh.com.sg/careers"><img src="./img/icons/career.png" class="icons">Careers</a>
       </li>
       <li id="pages-section">
-        <a class="nav-link text-white" href="http://www.skh.com.sg/giving"><img src="./icons/charity.png" class="icons">Giving</a>
+        <a class="nav-link text-white" href="http://www.skh.com.sg/giving"><img src="./img/icons/charity.png" class="icons">Giving</a>
       </li>
     </ul>
 
