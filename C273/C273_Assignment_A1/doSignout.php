@@ -1,4 +1,4 @@
-<!-- Ju Long 19013345 -->
+<?php #Ju Long 19013345 ?>
 
 <?php
 session_start();
@@ -18,4 +18,4 @@ if (isset($_SESSION['username'])) {
     </body>
 </html>
 
-<!-- Ju Long 19013345 -->
+<?php #Ju Long 19013345 ?>

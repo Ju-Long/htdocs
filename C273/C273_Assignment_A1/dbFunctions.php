@@ -1,4 +1,4 @@
-<!-- Ju Long 19013345 -->
+<?php #Ju Long 19013345 ?>
 
 <?php
 $HOST = '34.87.22.39';
@@ -8,4 +8,4 @@ $DB = 'C273_Assignment_A1';
 $link = mysqli_connect($HOST,$USERNAME,$PASSWORD,$DB) or die(mysqli_connect_error());
 ?>
 
-<!-- Ju Long 19013345 -->
+<?php #Ju Long 19013345 ?>

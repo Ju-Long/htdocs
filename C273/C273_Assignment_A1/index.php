@@ -1,4 +1,4 @@
-<!-- Ju Long 19013345 -->
+<?php #Ju Long 19013345 ?>
 
 <?php
 session_start();
@@ -174,4 +174,4 @@ session_start();
 
 </html>
 
-<!-- Ju Long 19013345 -->
+<?php #Ju Long 19013345 ?>

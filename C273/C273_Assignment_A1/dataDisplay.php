@@ -1,4 +1,4 @@
-<!-- Ju Long 19013345 -->
+<?php #Ju Long 19013345 ?>
 
 <?php
 session_start();
@@ -22,4 +22,4 @@ while($row = mysqli_fetch_array($resultList)) {
 echo json_encode($output);
 ?>
 
-<!-- Ju Long 19013345 -->
+<?php #Ju Long 19013345 ?>

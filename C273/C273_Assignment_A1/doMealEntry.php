@@ -1,4 +1,4 @@
-<!-- Ju Long 19013345 -->
+<?php #Ju Long 19013345 ?>
 
 <?php
 session_start();
@@ -22,4 +22,4 @@ $result = mysqli_query($link, $query);
 echo $result;
 ?>
 
-<!-- Ju Long 19013345 -->
+<?php #Ju Long 19013345 ?>

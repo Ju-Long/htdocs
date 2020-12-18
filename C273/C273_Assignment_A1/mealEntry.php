@@ -1,4 +1,4 @@
-<!-- Ju Long 19013345 -->
+<?php #Ju Long 19013345 ?>
 
 <?php
 session_start();
@@ -134,4 +134,4 @@ while($row = mysqli_fetch_assoc($result)) {
   </body>
 </html>
 
-<!-- Ju Long 19013345 -->
+<?php #Ju Long 19013345 ?>

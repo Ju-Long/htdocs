@@ -1,4 +1,4 @@
-<!-- Ju Long 19013345 -->
+<?php #Ju Long 19013345 ?>
 
 <?php
 include './dbFunctions.php';
@@ -20,4 +20,4 @@ if(isset($_GET['username'])) {
 }
 ?>
 
-<!-- Ju Long 19013345 -->
+<?php #Ju Long 19013345 ?>

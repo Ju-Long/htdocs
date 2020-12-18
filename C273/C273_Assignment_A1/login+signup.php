@@ -1,4 +1,4 @@
-<!-- Ju Long 19013345 -->
+<?php #Ju Long 19013345 ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -59,9 +59,10 @@
         $("#loginForm").submit(function() {
           $(".error").html("");
           $.get("./doLogin.php", {username: $("#id_loginUsername").val(), password: $("#id_loginPassword").val()}, function(data) {
+            data = data.trim();
             if(data == "true") {
-              location.replace("index.php");
-            } else {
+              location.replace('./index.php');
+            } else if (data == "false") {
               $("#id_loginPassword").val("");
               $("#error").html("you enter the wrong username/password.");
             }
@@ -221,4 +222,4 @@
   </body>
 </html>
 
-<!-- Ju Long 19013345 -->
+<?php #Ju Long 19013345 ?>
