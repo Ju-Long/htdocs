@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" type="text/css" href="./css/segmentAnimation.css">
-    <link href="https://www.cssscript.com/wp-includes/css/sticky.css" rel="stylesheet" type="text/css">
     <style>
       form .error {
         color: #ff0000;

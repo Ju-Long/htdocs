@@ -6,25 +6,11 @@
   font-weight: normal;
   text-decoration: none;
   overflow: hidden;
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
   border-radius: 2px;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  -moz-user-select: -moz-none;
-  -ms-user-select: none;
-  -webkit-user-select: none;
   user-select: none;
-  -moz-transition-duration: 0.7s;
-  -o-transition-duration: 0.7s;
-  -webkit-transition-duration: 0.7s;
   transition-duration: 0.7s;
-  -moz-transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  -o-transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  -webkit-transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
   transition-timing-function: cubic-bezier(0.445, 0.05, 0.55, 0.95);
-  -webkit-tap-highlight-color: transparent;
 }
 .segmented-control > input {
   position: absolute;
@@ -32,9 +18,6 @@
   opacity: 0;
 }
 .segmented-control > input[type='checkbox'] ~ label {
-  -moz-transition-duration: 0;
-  -o-transition-duration: 0;
-  -webkit-transition-duration: 0;
   transition-duration: 0;
 }
 .segmented-control > input[type='checkbox'] ~ label:before {
@@ -154,17 +137,8 @@
   font-style: inherit;
   font-weight: inherit;
   text-decoration: inherit;
-  -moz-transition-property: none;
-  -o-transition-property: none;
-  -webkit-transition-property: none;
   transition-property: none;
-  -moz-transition-duration: inherit;
-  -o-transition-duration: inherit;
-  -webkit-transition-duration: inherit;
   transition-duration: inherit;
-  -moz-transition-timing-function: inherit;
-  -o-transition-timing-function: inherit;
-  -webkit-transition-timing-function: inherit;
   transition-timing-function: inherit;
 }
 .segmented-control > label:before, .segmented-control > label:after {
@@ -185,17 +159,8 @@
   text-decoration: inherit;
   font-weight: inherit;
   opacity: 0;
-  -moz-transition-property: opacity, left;
-  -o-transition-property: opacity, left;
-  -webkit-transition-property: opacity, left;
   transition-property: opacity, left;
-  -moz-transition-duration: inherit;
-  -o-transition-duration: inherit;
-  -webkit-transition-duration: inherit;
   transition-duration: inherit;
-  -moz-transition-timing-function: inherit;
-  -o-transition-timing-function: inherit;
-  -webkit-transition-timing-function: inherit;
   transition-timing-function: inherit;
 }
 .segmented-control > label:after, .segmented-control > label {
@@ -203,25 +168,14 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 .segmented-control > label:before {
   content: '';
   color: inherit;
   background: currentColor;
-  -moz-transition-property: left;
-  -o-transition-property: left;
-  -webkit-transition-property: left;
   transition-property: left;
-  -moz-transition-duration: inherit;
-  -o-transition-duration: inherit;
-  -webkit-transition-duration: inherit;
   transition-duration: inherit;
-  -moz-transition-timing-function: inherit;
-  -o-transition-timing-function: inherit;
-  -webkit-transition-timing-function: inherit;
   transition-timing-function: inherit;
 }
 .segmented-control > label:first-of-type:nth-last-of-type(1), .segmented-control > label:first-of-type:nth-last-of-type(1):after, .segmented-control > label:first-of-type:nth-last-of-type(1):before, .segmented-control > label:first-of-type:nth-last-of-type(1) ~ label, .segmented-control > label:first-of-type:nth-last-of-type(1) ~ label:after, .segmented-control > label:first-of-type:nth-last-of-type(1) ~ label:before {
@@ -242,25 +196,10 @@
 .segmented-control > label:first-of-type:nth-last-of-type(6), .segmented-control > label:first-of-type:nth-last-of-type(6):after, .segmented-control > label:first-of-type:nth-last-of-type(6):before, .segmented-control > label:first-of-type:nth-last-of-type(6) ~ label, .segmented-control > label:first-of-type:nth-last-of-type(6) ~ label:after, .segmented-control > label:first-of-type:nth-last-of-type(6) ~ label:before {
   width: 16.66667%;
 }
-.segmented-control.italic, .segmented-control .italic {
-  font-style: italic;
-}
-.segmented-control.bold, .segmented-control .bold {
-  font-weight: bold;
-}
-.segmented-control.underline, .segmented-control .underline {
-  text-decoration: underline;
-}
-.segmented-control.line-through, .segmented-control .line-through {
-  text-decoration: line-through;
-}
 
 .segmented-control {
   margin: .8em auto;
   display: block;
-  -moz-transition-duration: 0.8s;
-  -o-transition-duration: 0.8s;
-  -webkit-transition-duration: 0.8s;
   transition-duration: 0.8s;
 }
 
