@@ -10,7 +10,6 @@ if (isset($_SESSION['username'])) {
 <html>
     <head>
         <meta charset="UTF-8">
-        <link href="stylesheets/storyTellerStylesheet.css" rel="stylesheet" type="text/css"/>
         <title></title>
     </head>
     <body>
