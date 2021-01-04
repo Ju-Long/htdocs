@@ -15,15 +15,37 @@ and open the template in the editor.
         <script src="js/jquery-ui.min.js" type="text/javascript"></script>
         <script>
             $(document).ready(function () {
-                //make ajax call to getNutrition.php
-                //load the results into a javascript array
-                //initialise autocomplete plugin with the array and attach it to #search
+              var values = null;
+              var food = [];
+                $.get("./getNutrition.php", {}, function(data){
+                  values = data;
+                  console.log(values);
+                  data.forEach(i => {
+                    food.push(i.food);
+                  });
+                }, "json");
 
-                //attach submit listener to the form
-                //make ajax call to getNutritionByFood.php passing in the food in the text field as parameter
-                //display the food details in #results
-                                
-            })
+                $("#search").autocomplete({
+                  source: food
+                });
+                $("#search").click(function() {
+                  var msg = "";
+                  values.forEach(i => {
+                    if ($("#search").val() == i.food) {
+                      msg += "<h3>" + i.food + "</h3>";
+                      msg += "<div>";
+                      msg += "<label>Calories</label><p>" + i.calories + "</p>";
+                      msg += "<label>Fat</label><p>" + i.fat + "</p>";
+                      msg += "<label>Protein</label><p>" + i.protein + "</p>";
+                      msg += "<label>Carbs</label><p>" + i.carbs + "</p>";
+                      msg += "<label>Fiber</label><p>" + i.fiber + "</p>";
+                      msg += "</div>";
+                    }
+                  });
+                  $("#results").html(msg);
+                  return false;
+                });
+            });
         </script>
     </head>
     <body>

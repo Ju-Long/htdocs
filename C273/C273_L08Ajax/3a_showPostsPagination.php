@@ -20,18 +20,24 @@ mysqli_close($link);
         <script src="js/jquery-3.5.1.min.js" type="text/javascript"></script>
         <script>
             $(document).ready(function () {
-                
-                //call getPosts() to load the first page
-                
-                //Attach a click listener to all page links in the pagination
-                //retrieve the page number that the user clicked
-                //call getPosts() passing in the page number
-                
+              getPosts(1);
+              $(".page-link").click(function() {
+                $(".active").removeClass('active');
+                $(this).addClass('active');
+                getPosts($(this).html());
+              })
             });
-            
-            //AJAX call to getPostsByPage.php passing in the page and limit as parameters
             function getPosts(page) {
-
+              $.get("getPostsByPage.php", {
+                page: page,
+                limit: 5
+              }, function(data){
+                var msg = "";
+                data.forEach(i => {
+                  msg += "<tr><td>" + i.title + "</td><td>" + i.content + "</td></tr>"
+                });
+                $("tbody").html(msg);
+              }, "json");
             }
         </script>
     </head>
@@ -42,7 +48,7 @@ mysqli_close($link);
                 <thead>
                     <tr><th>Title</th><th>Content</th></tr>
                 </thead>
-                <tbody></tbody>                   
+                <tbody></tbody>
             </table>
             <nav>
                 <ul class="pagination">

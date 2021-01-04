@@ -1,20 +1,28 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Exercise 1c</title>
-        <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <script>
-            $(document).ready(function () {
-               
-            });
-        </script>
-    </head>
 
-    <body>
-        <br/>
-        <select id="idModule" class="form-control-sm">
-        </select>
-    </body>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Exercise 1c</title>
+  <script type="text/javascript" src="js/jquery-3.5.1.min.js"></script>
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  <script>
+    $(document).ready(function() {
+      $.get("./getModules.php", {}, function(data) {
+        var msg = "<option>--- Please Select an Option ---</option>";
+        data.forEach(i => {
+          msg += "<option>" + i.module_name + "</option>";
+        });
+        $("#idModule").html(msg);
+      }, "json");
+    });
+  </script>
+</head>
+
+<body>
+  <br />
+  <select id="idModule" class="form-control-sm">
+  </select>
+</body>
+
 </html>

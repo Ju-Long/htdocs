@@ -4,6 +4,14 @@ include("dbFunctions.php");
 $modules = array();
 
 //write the php code to retrieve the data from the modules table
+$modules = array();
+$query = "SELECT * FROM modules order by 1";
+$result = mysqli_query($link, $query);
+
+while ($row = mysqli_fetch_assoc($result)) {
+    $modules[] = $row;
+}
+mysqli_close($link);
 ?>
 
 <!DOCTYPE HTML>
@@ -15,14 +23,41 @@ $modules = array();
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <script type="text/javascript">
             $(document).ready(function () {
-                //Attach a change listener to "Select Module" dropdown list
-                //make ajax call to getStudentsByModule.php passing in the selected module code
-                //load the student ids onto the "Select Student" dropdown list
-
-                //Attach a change listener to "Select Student" dropdown list
-                //make ajax call to getStudentDetails.php passing in the selected student id
-                //display the student details onto the grid below
-
+              var values = null;
+                $("#idModule").change(function() {
+                  $.get("./getStudentsByModule.php", {
+                    module_code: $("#idModule").val()
+                  }, function(data) {
+                    values = data;
+                    var msg;
+                    data.forEach(i => {
+                      msg = "<option>" + i.student_id + "</option>";
+                    });
+                    $('#idStudent').html(msg);
+                  }, "json");
+                });
+                $("#idStudent").change(function() {
+                  var selected = $(this).val();
+                  console.log(selected);
+                  values.forEach(i => {
+                    if(i.student_id == selected) {
+                      $(".studentid").html(i.student_id);
+                      $(".firstname").html(i.first_name);
+                      $(".lastname").html(i.last_name);
+                    }
+                  });
+                });
+                $("#idStudent").click(function() {
+                  var selected = $(this).val();
+                  console.log(selected);
+                  values.forEach(i => {
+                    if(i.student_id == selected) {
+                      $(".studentid").html(i.student_id);
+                      $(".firstname").html(i.first_name);
+                      $(".lastname").html(i.last_name);
+                    }
+                  });
+                });
             });
         </script>
     </head>
@@ -37,8 +72,8 @@ $modules = array();
                         <?php
                         for ($i = 0; $i < count($modules); $i++) {
                             ?>
-                            <option value="<?php echo $modules[$i]['module_code']; ?>"><?php echo $modules[$i]['module_name']; ?></option>                 
-                        <?php } ?>        
+                            <option value="<?php echo $modules[$i]['module_code']; ?>"><?php echo $modules[$i]['module_name']; ?></option>
+                        <?php } ?>
                     </select>
                 </div>
                 <div class="form-group">

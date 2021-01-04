@@ -39,19 +39,24 @@ mysqli_close($link);
 
                 $.fn.raty.defaults.path = 'js/img';
 
-                //create a raty listener for each unique #rating (i.e. #ratingc111, #ratingc105, #ratingc203)
-                //initialise the score to each module's rating
-                //click callback to make ajax call to insertRating.php passing in the rating, student_id and module_code
-
-                $('#ratingsc111').raty({
+                <?php
+                for($i=0; $i<count($modules);$i++){
+                    ?>
+                $('#ratings<?php echo $modules[$i]["module_code"]?>').raty({
                     cancel: false,
                     number: 5,
-                    score: 0,
-                    click: function (data) {
-
+                    score: <?php echo $modules[$i]["rating"] ?>,
+                click: function(data){
+                    $.get("./insertRating.php", {
+                      rating: data,
+                      student_id: <?php echo $studentId;?>,
+                      module_code: <?php echo $modules[$i]['module_code'];?>
+                    }, function(data){
+                      alert(correct);
+                    }, "json")
                     }
                 });
-
+                <?php } ?>
             });
         </script>
     </head>
@@ -71,7 +76,7 @@ mysqli_close($link);
                         <div id="ratings<?php echo $modules[$i]['module_code'] ?>"></div>
                         <p class="text-muted mt-3"><em>Total Reviews: <?php echo $modules[$i]['totalRating'] ?></em></p>
                         <p><?php echo $modules[$i]['description'] ?></p>
-                    </div>                           
+                    </div>
                 </div>
 
             <?php } ?>

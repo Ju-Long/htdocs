@@ -20,11 +20,20 @@ mysqli_close($link);
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <script>
             $(document).ready(function () {
-                //Attach a change listener to "Select Student" dropdown list
-                //make ajax call to getStudentDetails.php passing in the selected student id
-                //display the student details onto the grid below
+              const data = <?php echo json_encode($student);?>;
+                $("#idStudent").change(function() {
+                  var selected = $(this).val();
+                  console.log(selected);
+                  data.forEach(i => {
+                    if(i.student_id == selected) {
+                      $(".studentid").html(i.student_id);
+                      $(".firstname").html(i.first_name);
+                      $(".lastname").html(i.last_name);
+                    }
+                  });
+                });
             });
-        </script>        
+        </script>
     </head>
 
     <body>
@@ -35,8 +44,8 @@ mysqli_close($link);
                 <?php
                 for ($i = 0; $i < count($student); $i++) {
                     ?>
-                    <option value="<?php echo $student[$i]['student_id']; ?>"><?php echo $student[$i]['student_id']; ?></option>                 
-                <?php } ?>        
+                    <option value="<?php echo $student[$i]['student_id']; ?>"><?php echo $student[$i]['student_id']; ?></option>
+                <?php } ?>
             </select>
             <br/><br/>
             <div class="row">
