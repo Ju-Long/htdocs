@@ -50,9 +50,9 @@ mysqli_close($link);
                     $.get("./insertRating.php", {
                       rating: data,
                       student_id: <?php echo $studentId;?>,
-                      module_code: <?php echo $modules[$i]['module_code'];?>
+                      module_code: "<?php echo $modules[$i]['module_code'];?>"
                     }, function(data){
-                      alert(correct);
+                      alert("updated");
                     }, "json")
                     }
                 });
