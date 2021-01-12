@@ -10,4 +10,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 
 echo json_encode($output);
+
+$response[“name”] = “Bob”;
+$response[“phone”] = “1234”;
+echo json_encode($response);
 ?>
