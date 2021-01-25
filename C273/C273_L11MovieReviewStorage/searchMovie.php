@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <title></title>
         <link href="css/bootstrap.min.css" rel="stylesheet">
-        <script src="js/jquery-3.5.1.min.js"></script> 
-        <script src="js/bootstrap.min.js"></script> 
+        <script src="js/jquery-3.5.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
         <script src="js/searchMovie.js"></script>
     </head>
     <body>
