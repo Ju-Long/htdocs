@@ -1,13 +1,12 @@
 <?php
 
-    $username = "root"; 
+    $username = "root";
     $password = "";         // No password for localhost
-    $db       = "c273_p12";  
+    $db       = "c273_p12";
 
 
-$host = "localhost";
-$link = mysqli_connect($host,$username,$password,$db) or 
+$host = "34.126.76.15";
+$link = mysqli_connect($host,$username,$password,$db) or
         die(mysqli_connect_error());
 
 ?>
-
