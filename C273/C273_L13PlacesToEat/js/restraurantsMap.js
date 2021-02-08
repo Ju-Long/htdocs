@@ -1,45 +1,98 @@
 var map;
 $(document).ready(function () {
 
-    function initMap() {
-        map = new google.maps.Map(document.getElementById("map"), {
-          center: { lat: 1.3521, lng: 103.8198 },
-          zoom: 8,
-        });
-      }
+  map = new google.maps.Map(document.getElementById("map"), {
+    center: {
+      lat: 1.3521,
+      lng: 103.8198
+    },
+    zoom: 10,
+  });
 
-    loadRestaurants();
+  loadRestaurants();
 
-    listenAddMarker();
+  listenAddMarker();
 
-    listenCurrLoc();
+  listenCurrLoc();
 
-    listenSaveRestaurant();
+  listenSaveRestaurant();
 
 });
 
 function loadRestaurants() {
-    $.get("getRestaurants.php", data,
-        function (data, textStatus, jqXHR) {
-            
-        },
-        "dataType"
-    );
+  $.get("getRestaurants.php", {},
+    function (data) {
+      data.forEach(i => {
+        var marker = new google.maps.Marker({
+          position: {
+            lat: i.latitude,
+            lng: i.longitude
+          },
+          map: map,
+          title: i.name
+        })
+      });
+    },
+    "json"
+  );
 }
 
 function listenAddMarker() {
-//TODO: create a click listener to place a green marker on the map (See step 8)
-//TODO: Show the latitude and longitude in the “Latitude” and “Longitude” form fields
+  google.maps.event.addListener(map, 'click', function (event) {
+    var marker = new google.maps.Marker({
+      position: {
+        lat: event.latLng.lat(),
+        lng: event.latLng.lng()
+      },
+      map: map,
+      title: "added",
+      icon: {
+        url: "http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"
+      }
+    });
+    $("#latitude").val(event.latLng.lat());
+    $("#longitude").val(event.latLng.lng());
+  });
 }
 
 function listenCurrLoc() {
-//TODO: create a click listener for the currLoc.png image.
-//TODO: Get the current position of the user and place a blue marker on the map (See step 7)
-//TODO: Show the current latitude and longitude in the “Latitude” and “Longitude” form fields
+  $("#currLoc").click(function () {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function (position) {
+        var useMarker = new google.maps.Marker({
+          position: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          },
+          map: map,
+          title: "Current position",
+          icon: {
+            url: "http://maps.google.com/mapfiles/ms/icons/blue-dot.png"
+          }
+        });
+        $("#latitude").val(position.coords.latitude);
+        $("#longitude").val(position.coords.longitude);
+      })
+    }
+  })
 }
 
 function listenSaveRestaurant() {
-//TODO: create a submit listener for the form
-//TODO: Make an ajax call to addRestaurant.php to add the form fields to database (See Problem 10)
-//TODO: If success, show modal with message “restaurant added successfully”. Otherwise, display message “restaurant not added”    
+  $("form").submit(function () {
+    $.post("addRestaurant.php", {
+      name: $("#name").val(),
+      description: $("#description").val(),
+      lat: $("#latitude").val(),
+      lng: $("#longitude").val()
+    }, function (data) {
+      if (data.success === "1") {
+        $("#output").text("restaurant added successfully");
+      } else {
+        $("#output").text("restaurant not added");
+      }
+      $("#modalResult").modal("show");
+    }, "json");
+    $("input").val("");
+    return false;
+  });
 }
